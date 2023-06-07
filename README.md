@@ -1,3 +1,7 @@
+Some ToDo App
+
+ON VUE 3
+
 # newapp
 
 ## Project setup
