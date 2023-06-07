@@ -1,6 +1,6 @@
 <template>
   <div v-if="todos.length > 0">
-    <h2 style="color:darkblue"> Спиcoк постов </h2>
+    <h2 style="color:darkblue"> ToDo list </h2>
     <todo-item 
       v-for="todo in todos" 
       :key="todo.id" 

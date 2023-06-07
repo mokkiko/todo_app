@@ -1,10 +1,10 @@
 <template>
   <div class="app">
-    <h1 style="color:darkblue ">ToDo list</h1>
+    <h1 style="color:darkblue ">MY TODO</h1>
     <my-button
       @click="showDialog"
     >
-      СCreate ToDo task
+      Сreate ToDo task
     </my-button>
     <my-dialog v-model:show="dialogVisible">
       <todo-form 
