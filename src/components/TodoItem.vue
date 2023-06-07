@@ -10,12 +10,6 @@
         {{ todo.priority_level }}
         </my-priority-block>
     </div>
-    <div>
-        <my-priority-block>
-          Priority = 
-        {{ todo.priority_level }}
-        </my-priority-block>
-    </div>
     <div class="todo_btn">
       <my-button
         @click="$emit('remove', todo)"

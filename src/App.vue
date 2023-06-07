@@ -1,11 +1,19 @@
 <template>
   <div class="app">
-    <h1 style="color:darkblue ">MY TODO</h1>
-    <my-button
+    <h1 style="color:darkblue ">BAse ToDo list already here... You can add some task if you need!</h1>
+
+    <div class="nav__buttonts">
+      <my-button
       @click="showDialog"
-    >
-      Сreate ToDo task
-    </my-button>
+      >
+      Create ToDo task
+      </my-button>
+      <my-select 
+      v-model="selectedSort" 
+      :options="sortOptions"/>
+
+    </div>
+
     <my-dialog v-model:show="dialogVisible">
       <todo-form 
         @create = "createTodo"
@@ -31,12 +39,17 @@ export default {
   data() {
     return {
       todos: [
-        { id: 1, title: "open eyes", description: "We need to open our eyes))", priority_level: 3 },
-        { id: 2, title: "get up from bed", description: "The early bird that catches the worm.", priority_level: 3},
-        { id: 3, title: "wash up", description: "New day, fresh and cheerful", priority_level: 2},
-        { id: 4, title: "make breakfest", description: "something delicious with a cup of coffee ", priority_level: 2},
+        { id: 1, title: "open eyes", description: "We need to open our eyes))", priority_level: '3' },
+        { id: 2, title: "get up from bed", description: "The early bird that catches the worm.", priority_level: '3'},
+        { id: 3, title: "wash up", description: "New day, fresh and cheerful", priority_level: '2'},
+        { id: 4, title: "make breakfest", description: "something delicious with a cup of coffee ", priority_level: '2'},
       ],
-      dialogVisible: false
+      dialogVisible: false,
+      selectedSort: '',
+      sortOptions:[
+        {value: 'title', name: 'By name'},
+        {value: 'priority_level', name: 'By priority'},
+      ]
 
     };
   },
@@ -51,7 +64,16 @@ export default {
     },
     showDialog() {
       this.dialogVisible = true;
-    }
+    },
+
+    
+  },
+  watch: {
+    selectedSort(newValue) {
+      this.todos.sort((todo1, todo2) => {
+        return todo1[newValue]?.localeCompare(todo2[newValue])
+      })
+    },
   }
 }
 
@@ -73,5 +95,10 @@ body {
   padding: 20px;
 }
 
+.nav__buttonts {
+  display: flex;
+  justify-content: space-between;
+
+}
 
 </style>
