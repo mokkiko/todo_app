@@ -16,7 +16,6 @@
       >
       Удалить</my-button>
     </div>
-    
   </div>
 </template>
 

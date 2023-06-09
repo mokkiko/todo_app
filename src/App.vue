@@ -48,7 +48,7 @@ export default {
       selectedSort: '',
       sortOptions:[
         {value: 'title', name: 'By name'},
-        {value: 'priority_level', name: 'By priority'},
+        {value: 'priority_level', name: 'By priority'},     
       ]
 
     };
