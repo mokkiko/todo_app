@@ -15,7 +15,7 @@ export default {
 .btn {
   margin: 8px;
   align-self: flex-end;
-  padding: 16px 16px;
+  padding: 8px 8px;
   background: none;
   color: rgb(89, 5, 138);
   border: 1px solid rgb(78, 113, 179);

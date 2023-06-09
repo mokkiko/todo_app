@@ -11,11 +11,22 @@
       type="text"
       placeholder="Описание"
     />
-    <my-input
-      v-model="todo.priority_level"
-      type="integer"
-      placeholder="priority from 1..3"
-    />
+
+    <select 
+    v-model="todo.priority_level"
+    placeholder="Описание"
+    >
+      <option disabled value="">priority task level</option>
+      <option
+        v-for="priorityOption in priorityOptions"
+        :key="priorityOption.value"
+        :value="priorityOption.value"
+      >
+        {{ priorityOption.value }}
+      </option>
+     </select>
+
+
     <my-button 
       class="btn" 
       @click="createtodo"
@@ -35,7 +46,12 @@
         todo: {
           title: '',
           description: '',    
-        }
+        },
+        priorityOptions:[
+          {value: '1'},
+          {value: '2'},     
+          {value: '3'},   
+        ]
       }
     },
     methods: {
