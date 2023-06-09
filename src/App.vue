@@ -28,6 +28,7 @@
       :todos="sortedAndSearchedTodos" 
       @remove="removeTodo"
     />
+    
   </div>
 </template>
 

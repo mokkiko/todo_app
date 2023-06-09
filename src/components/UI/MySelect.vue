@@ -34,10 +34,9 @@ export default {
 <style scoped>
 
 .search_field {
-  margin-top: 8px; 
+  margin: 8px; 
   border-radius: 4px;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(78, 113, 179);
-
 }
 </style>

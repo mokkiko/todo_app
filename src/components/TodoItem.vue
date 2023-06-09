@@ -1,27 +1,35 @@
 <template>
+
   <div class="todo">
-    <div>
-      <div><strong>Title  </strong>{{ todo.title }}</div>
-      <div><strong>Description  </strong>{{ todo.description }}</div>
+    <div class="row">
+      <div class="col-7">
+        <div>
+          <div><strong>Title  </strong>{{ todo.title }}</div>
+          <div><strong>Description  </strong>{{ todo.description }}</div>
+        </div>
+      </div>
+      <div class="col-1">
+        <div 
+          :class ="{
+            'red_priority': todo.priority_level === '3',
+            'green_priority': todo.priority_level === '1',       
+          }">
+            <my-priority-block>
+              Priority = 
+            {{ todo.priority_level }}
+          </my-priority-block>
+        </div>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-1">
+          <div>
+            <my-button
+              @click="$emit('remove', todo)">
+            Удалить</my-button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div 
-      :class ="{
-        'red_priority': todo.priority_level === '3',
-        'green_priority': todo.priority_level === '1',       
-      }"
-    >
-        <my-priority-block>
-          Priority = 
-        {{ todo.priority_level }}
-        </my-priority-block>
-    </div>
-    <div class="todo_btn">
-      <my-button
-        @click="$emit('remove', todo)"
-      >
-      Удалить</my-button>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -41,10 +49,7 @@
 .todo {
   border: 2px solid green;
   padding: 10px;
-  margin: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  margin: 8px;
   border-radius: 8px;
 }
 

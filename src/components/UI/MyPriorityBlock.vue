@@ -20,8 +20,8 @@ export default {
 
 .priority__block {
   margin: 4px;
-  align-self: flex-end;
-  padding: 16px 16px;
+  align-self: center;
+  padding: 8px;
   background: none;
   color: rgb(89, 5, 138);
   border-radius: 8px;
