@@ -1,5 +1,5 @@
 <template>
-  <select :value="modelValue" @change="changeOption">
+  <select :value="modelValue" @change="changeOption" class="search_field">
     <option disabled value="">Choose sort type</option>
     <option
       v-for="option in options"
@@ -32,4 +32,12 @@ export default {
 </script>
 
 <style scoped>
+
+.search_field {
+  margin-top: 8px; 
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(78, 113, 179);
+
+}
 </style>

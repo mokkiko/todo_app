@@ -1,6 +1,10 @@
 <template>
   <div class="app">
-    <h1 style="color:darkblue ">BAse ToDo list already here... You can add some task if you need!</h1>
+    <h1 style="color:darkblue ">Base ToDo list already here... You can add some task if you need!</h1>
+    <my-input
+      v-model="searchQuery"
+      placeholder="filter your todos"
+      />
 
     <div class="nav__buttonts">
       <my-button
@@ -21,7 +25,7 @@
     </my-dialog>
 
     <todo-list 
-      :todos="todos" 
+      :todos="sortedAndSearchedTodos" 
       @remove="removeTodo"
     />
   </div>
@@ -46,6 +50,7 @@ export default {
       ],
       dialogVisible: false,
       selectedSort: '',
+      searchQuery: '',
       sortOptions:[
         {value: 'title', name: 'By name'},
         {value: 'priority_level', name: 'By priority'},     
@@ -69,11 +74,16 @@ export default {
     
   },
   watch: {
-    selectedSort(newValue) {
-      this.todos.sort((todo1, todo2) => {
-        return todo1[newValue]?.localeCompare(todo2[newValue])
-      })
+
+  },
+  computed:{
+    sortedTodos() {
+      return [...this.todos].sort((todo1, todo2) => todo1[this.selectedSort]?.localeCompare(todo2[this.selectedSort]))
     },
+    sortedAndSearchedTodos() {
+      return this.sortedTodos.filter(todo => todo.title.includes(this.searchQuery) || todo.description.includes(this.searchQuery))
+    },
+
   }
 }
 
@@ -98,7 +108,5 @@ body {
 .nav__buttonts {
   display: flex;
   justify-content: space-between;
-
 }
-
 </style>
